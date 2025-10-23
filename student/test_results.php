@@ -2,17 +2,7 @@
 session_start();
 
 // Подключение к БД
-$host = '127.0.0.1:3306';
-$dbname = 'testby';
-$username = 'root'; // замените на вашего пользователя
-$password = ''; // замените на ваш пароль
-
-try {
-    $pdo = new PDO("mysql:host=127.0.0.1;port=3306;dbname=testby;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Ошибка подключения: " . $e->getMessage());
-}
+require_once '../includes/config.php';
 
 // Проверка авторизации
 if (!isset($_SESSION['user_id'])) {
